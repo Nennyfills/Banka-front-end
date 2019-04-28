@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Banka | Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css-folder/main.css" />
+
+  <link rel="shortcut icon" href="../public/bicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../public/bicon.png" />
+  <link rel="icon" sizes="192x192" href="../public/bicon.png" />
+</head>
+
+<body>
+  <label for="mobileShowmenu" class="mobileShowmenu">Show Menu</label>
+  <input type="checkbox" role="button" id="mobileShowmenu" />
+  <div class="sidemenu">
+    <nav>
+      <div class="logo">
+        <h1><span>B</span>anka</h1>
+      </div>
+      <a class="active" href="profile.html">
+        <i class="far fa-user-circle"></i>Profile</a>
+      <a href="create-account.html"><i class="fas fa-plus-circle"></i>Create
+        Account</a>
+      <a href="transaction.html"><i class="fas fa-transgender-alt"></i>Transaction
+        History</a>
+    </nav>
+  </div>
+  <header>
+    <div class="userarea">
+      <div id="logout">
+        <a href="../../index.html"><strong>Log Out</strong></a>
+      </div>
+      <div class="userimage">
+        <img src="../public/nenny1.jpg" alt="" />
+      </div>
+      <div class="username">
+        <p>
+          Welcome <span id="userName"></span> Joy</span>
+        </p>
+      </div>
+    </div>
+  </header>
+  <div class="content-area">
+    <div class=".profiles-card">
+      <div class="card-wrapper">
+        <div class="card-item">
+          <img src="../public/nenny2.jpg" alt="loading" id="" class="cards-image" />
+          <img src="../public/nenny1.jpg" alt="loading" id="" class="profiles-image" />
+          <div class="upload secondary-btn">
+            <a href="uploadImage.html">Upload Photo</a>
+          </div>
+          <div class=" username-styles">
+            <h4 id="userName">joy</h4>
+          </div>
+          <div class="useremail">
+            <h4 id="userEmail">joy@gmail.com</h4>
+          </div>
+          <div class="phonenumber">
+            <h4 id="userphonenumber">08023243567</h4>
+          </div>
+        </div>
+        <div class="dcard-item-right">
+          <div class="card-item-right">
+            <div>
+              <h4 class="profile-acount-design">
+                Account: <span id="profileAccount">0980892310</span>
+              </h4>
+              <h4 class="profile-account-type-design">
+                Type: <span id="accountType">Current Account</span>
+              </h4>
+              <h4 class="profile-birthday-design">
+                Birthday: <span id="dob">2-12-1985</span>
+              </h4>
+              <h4 class="profile-gender-design">
+                Gender: <span id="Gender">Female</span>
+              </h4>
+              <h3 class="badge-success"><span id="active">Active</span></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-item-right-small-view-content">
+        <div>
+          <h4 class="card-item-right-small-view">
+            Account: <span id="profileAccount">0980892310</span>
+          </h4>
+          <h4 class="card-item-right-small-view">
+            Type: <span id="accountType">Current Account</span>
+          </h4>
+          <h4 class="card-item-right-small-view">
+            Birthday: <span id="dob">2-12-1985</span>
+          </h4>
+          <h4 class="card-item-right-small-view">
+            Gender: <span id="Gender">Female</span>
+          </h4>
+          <h3 class="badge-success"><span id="active">Active</span></h3>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  </div>
+  <script src="js-folder/main.js"></script>
+  <footer id="main-footer">
+    <p>Copyright &copy; 2019 Banka All Right Reserved</p>
+  </footer>
+</body>
+
+</html>

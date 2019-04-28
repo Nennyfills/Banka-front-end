@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Banka | Transation History</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css-folder/main.css" />
+  <link rel="shortcut icon" href="../public/bicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../public/bicon.png" />
+  <link rel="icon" sizes="192x192" href="../public/bicon.png" />
+</head>
+
+<body>
+  <label for="mobileShowmenu" class="mobileShowmenu">Show Menu</label>
+  <input type="checkbox" role="button" id="mobileShowmenu" />
+  <div class="sidemenu">
+    <nav>
+      <div class="logo">
+        <h1><span>B</span>anka</h1>
+      </div>
+      <a href="profile.html"> <i class="far fa-user-circle"></i>Profile</a>
+      <a href="create-account.html"><i class="fas fa-plus-circle"></i>Create Account</a>
+      <a class="active" href="transaction.html"><i class="fas fa-transgender-alt"></i>Transation History</a>
+    </nav>
+  </div>
+  <header>
+    <div class="userarea">
+      <div id="logout">
+        <a href="../../index.html"><strong>Log Out</strong></a>
+      </div>
+      <div class="userimage">
+        <img src="../public/nenny1.jpg" alt="" />
+      </div>
+      <div class="username">
+        <p>
+          Welcome <span id="username"> Joy</span>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="content-area">
+    <div class="heading">
+      <h1>Transation</h1>
+    </div>
+
+
+
+    <form action="">
+      <div class=" searchItem">
+        <label for="from">From</label>
+        <input type="date" name="Search" class="searchField" id="transactionSearch" placeholder="Filter by date" />
+        <label for="to">To</label>
+        <input type="date" name="Search" class="searchFieldTwo" id="transactionSearch" />
+        <button type="Submit" id="get-search-button" class="getSearchButton">Search</button>
+      </div>
+    </form>
+
+    <div class="transation">
+      <table class="table-content">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Account Number</th>
+            <th>Amount</th>
+            <th>casher</th>
+            <th>Old balance</th>
+            <th>New balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12/1/2019</td>
+            <td>Debit</td>
+            <td>09009898723</td>
+            <td>1345.6</td>
+            <td>chidi</td>
+            <td>200</td>
+            <td>1545.6</td>
+        </tbody>
+      </table>
+    </div>
+    <footer id="main-footer">
+      <p>Copyright &copy; 2019 Banka All Right Reserved</p>
+    </footer>
+  </div>
+  </div>
+  <script src="js-folder/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Banka | Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css-folder/main.css" />
+  <link rel="shortcut icon" href="../public/bicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../public/bicon.png" />
+  <link rel="icon" sizes="192x192" href="../public/bicon.png" />
+</head>
+
+<body>
+  <label for="mobileShowmenu" class="mobileShowmenu">Show Menu</label>
+  <input type="checkbox" role="button" id="mobileShowmenu" />
+  <div class="sidemenu">
+    <nav>
+      <div class="logo">
+        <h1><span>B</span>anka</h1>
+      </div>
+      <a class="active" href="dashboard-staff.html">
+        <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+      <a href="accounts.html">
+        <i class="far fa-user-circle"></i>Account</a>
+      <a href="credit.html"><i class="fas fa-minus-circle"></i>Credit Account
+      </a>
+      <a href="debit.html"><i class="fas fa-plus-circle"></i> Debit Account
+      </a>
+    </nav>
+  </div>
+  <header>
+    <div class="userarea">
+      <div id="logout">
+        <a href="../../index.html"><strong>Log Out</strong></a>
+      </div>
+      <div class="userimage">
+        <img src="../public/nenny1.jpg" alt="" />
+      </div>
+      <div class="username">
+        <p>
+          Welcome <span id="username"> Staff1</span>
+        </p>
+      </div>
+    </div>
+  </header>
+  <div class="content-area">
+    <div class=".profiles-card">
+      <h1 class="card-head"> Dashboard </h1>
+      <div class="card-wrapper">
+        <div class="card-item">
+          <img src="../public/nenny2.jpg" alt="loading" id="" class="cards-image" />
+          <img src="../public/nenny1.jpg" alt="loading" id="" class="profiles-image" />
+          <div class="upload secondary-btn">
+            <a href="uploadImage.html">Upload Photo</a>
+          </div>
+          <div class=" username-styles">
+            <h4 id="userName">Staff1</h4>
+          </div>
+          <div class="useremail">
+            <h4 id="userEmail">Staff@gmail.com</h4>
+          </div>
+          <div class="phonenumber">
+            <h4 id="userphonenumber">08023243567</h4>
+          </div>
+        </div>
+
+        <div class="card-i">
+          <div class="card-item-right">
+            <div>
+              <h2>Accounts</h2>
+              <h4>
+                <span id="accounts">0</span> Bank Account
+              </h4>
+            </div>
+          </div>
+          <div class="card-item-right">
+            <div class="">
+              <h2>Deleted Accounts</h2>
+              <h4>
+                <span id="DeletedAccounts">0</span> Deleted Bank
+                Account
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card-item-right">
+            <div class="">
+              <h2>credit Accounts</h2>
+              <h4>
+                <span id="actvatedAccounts">0</span> Credited Bank
+                Account
+              </h4>
+            </div>
+          </div>
+          <div class="card-item-right">
+            <div class="">
+              <h2>Debit Accounts</h2>
+              <h4>
+                <span id="deactvatedAccounts">0</span> Debited Bank
+                Account
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-item-right-small-view-content">
+      <div class="card-item-right-small-view">
+        <h2>Accounts</h2>
+        <h4>
+          <span id="accounts">0</span> Bank Account
+        </h4>
+      </div>
+
+      <div class="card-item-right-small-view">
+        <h2>Deleted Accounts</h2>
+        <h4>
+          <span id="DeletedAccounts">0</span> Deleted Bank
+          Account
+        </h4>
+      </div>
+      <div class="card-item-right-small-view">
+        <h2>credit Accounts</h2>
+        <h4>
+          <span id="actvatedAccounts">0</span> Credit Bank
+          Account
+        </h4>
+      </div>
+      <div class="card-item-right-small-view">
+        <h2>Debit Accounts</h2>
+        <h4>
+          <span id="deactvatedAccounts">0</span> Debit Bank
+          Account
+        </h4>
+      </div>
+    </div>
+    <footer id="main-footer">
+      <p>Copyright &copy; 2019 Banka All Right Reserved</p>
+    </footer>
+  </div>
+  <script src="js-folder/main.js"></script>
+</body>
+
+</html>
