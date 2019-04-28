@@ -9,17 +9,17 @@ const logMeIn = (e) => {
       "user",
       JSON.stringify({ name: "ADMIN", permission: "ADMIN" }),
     );
-    window.location.href = "UI/user/dashboard-admin.html";
+    window.location.href = "user/dashboard-admin.html";
     return false;
   } if (username === "staff" && password === "staff") {
-    window.location.href = "UI/user/dashboard-staff.html";
+    window.location.href = "user/dashboard-staff.html";
     localStorage.setItem(
       "user",
       JSON.stringify({ name: "STAFF", permission: "STAFF" }),
     );
     return false;
   } if (username === "user" && password === "user") {
-    window.location.href = "UI/user/profile.html";
+    window.location.href = "user/profile.html";
     localStorage.setItem(
       "user",
       JSON.stringify({ name: "USER", permission: "USER" }),
