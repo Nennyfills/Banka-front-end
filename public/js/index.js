@@ -1,33 +1,55 @@
-const logMeIn = (e) => {
+const logMeIn = async (e) => {
   e.preventDefault();
-  const username = document.getElementById("username").value;
+  const email = document.getElementById("username").value;
   const password = document.getElementById("userpassword").value;
   const content = document.getElementById("login-respond");
 
-  if (username === "admin" && password === "admin") {
-    localStorage.setItem(
-      "user",
-      JSON.stringify({ name: "ADMIN", permission: "ADMIN" }),
-    );
-    window.location.href = "user/dashboard-admin.html";
-    return false;
-  } if (username === "staff" && password === "staff") {
-    window.location.href = "user/dashboard-staff.html";
-    localStorage.setItem(
-      "user",
-      JSON.stringify({ name: "STAFF", permission: "STAFF" }),
-    );
-    return false;
-  } if (username === "user" && password === "user") {
-    window.location.href = "user/profile.html";
-    localStorage.setItem(
-      "user",
-      JSON.stringify({ name: "USER", permission: "USER" }),
-    );
-    return false;
-  }
-  content.style.display = "block";
+  const url = "http://localhost:8000/api/v1/auth/login"
+  const payload = JSON.stringify({ email, password })
+  
+  showSpinner();
 
+  try {
+    const response = await fetch(url,
+      {
+        method: 'POST',
+        body: payload,
+        mode: "cors",
+        cache: "no-cache",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    if (!response.ok) {
+      hideSpinner();
+      
+      const json = await response.json()
+
+      content.style.display = 'block';
+      content.innerText = json.message;
+      return;      
+    }
+    
+    const { token, user } = await response.json();
+    localStorage.setItem('token', token);
+    localStorage.setItem("user", JSON.stringify(permission));
+    
+    if (permission === 'ADMIN') {
+      window.location.href = "user/dashboard-admin.html";
+  
+    } if (permission === 'STAFF') {
+      window.location.href = "user/dashboard-staff.html";
+      return false;
+    } else {
+      window.location.href = "user/profile.html";
+      return false;
+    }
+
+  } catch (error) {
+    hideSpinner();
+    console.error(`Failed to retrieve user informations: (${error})`);
+  }
 
   return false;
 };
