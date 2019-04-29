@@ -31,14 +31,18 @@ const logMeIn = async (e) => {
       return;      
     }
     
-    const { token, user } = await response.json();
+    const json = await response.json();
+    console.log(json)
+    const { token, user } = json;
+
+    console.log(user);
     localStorage.setItem('token', token);
-    localStorage.setItem("user", JSON.stringify(permission));
+    localStorage.setItem("user", JSON.stringify(user));
     
-    if (permission === 'ADMIN') {
+    if (user.permission === 'ADMIN') {
       window.location.href = "user/dashboard-admin.html";
   
-    } if (permission === 'STAFF') {
+    } if (user.permission === 'STAFF') {
       window.location.href = "user/dashboard-staff.html";
       return false;
     } else {
