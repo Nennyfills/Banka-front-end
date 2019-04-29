@@ -44,15 +44,15 @@ h6 {
 
 @keyframes slider {
   20% {
-    background: url("../public/wallpaper1.jpg") no-repeat;
+    background: url("public/wallpaper1.jpg") no-repeat;
     background-size: 100% 100%;
   }
   35% {
-    background: url("../public/wallpaper2.jpg") no-repeat;
+    background: url("public/wallpaper2.jpg") no-repeat;
     background-size: 100% 100%;
   }
   75% {
-    background: url("../public/wallpaper3.jpg") no-repeat;
+    background: url("public/wallpaper3.jpg") no-repeat;
     background-size: 100% 100%;
   }
   120% {
