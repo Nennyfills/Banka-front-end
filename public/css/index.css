@@ -37,26 +37,26 @@ h6 {
   flex: 1;
   text-align: center;
   justify-content: center;
-  background: url("../public/wallpaper.jpg") no-repeat;
+  background: url("../img/wallpaper.jpg") no-repeat;
   background-size: 100% 100%;
   animation: slider 15s infinite linear;
 }
 
 @keyframes slider {
   20% {
-    background: url("../public/wallpaper1.jpg") no-repeat;
+    background: url("../img/wallpaper1.jpg") no-repeat;
     background-size: 100% 100%;
   }
   35% {
-    background: url("../public/wallpaper2.jpg") no-repeat;
+    background: url("../img/wallpaper2.jpg") no-repeat;
     background-size: 100% 100%;
   }
   75% {
-    background: url("../public/wallpaper3.jpg") no-repeat;
+    background: url("../img/wallpaper3.jpg") no-repeat;
     background-size: 100% 100%;
   }
   120% {
-    background: url("../public/wallpaper4.jpg") no-repeat;
+    background: url("../img/wallpaper4.jpg") no-repeat;
     background-size: 100% 100%;
   }
 
