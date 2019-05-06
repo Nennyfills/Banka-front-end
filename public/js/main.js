@@ -1,3 +1,11 @@
+let user = null;
+
+const localUser = localStorage.getItem('user');
+if (localUser) {
+  user = JSON.parse(localUser);
+}
+console.log(user, "main");
+
 const previewImage = (e) => {
   uploadFile(e.files[0]);
 };
@@ -86,21 +94,25 @@ document.onreadystatechange = () => {
   if (document.readyState !== "complete") {
     return;
   }
-  const img = document.getElementById("image");
-  //https://res.cloudinary.com/${cloudName}/image/upload/${url}/{userId}.jpg`
-  const url = `https://res.cloudinary.com/${cloudName}/image/upload/${url}/nenny1_ewjwmw.jpg`;
-  img.src = url;
-};
-
-const dashboard = document.getElementById("side_dashboard").addEventListener("click", (e) => {
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (user.permission === "admin".toUpperCase()) {
-    window.location.href = "dashboard-admin.html";
-  } else if (user.permission === "staff".toUpperCase()) {
-    window.location.href = "dashboard-staff.html";
-  } else if (user.permission === "user".toUpperCase()) {
-    window.location.href = "dashboard-user.html";
+  const usernameElements = document.getElementsByClassName("username-label");
+  for (let i = 0; i < usernameElements.length; i++) {
+      usernameElements[i].innerText = user.firstname; 
   }
-});
-const user = JSON.parse(localStorage.getItem("user"));
-document.getElementById("username").innerHTML = user.name;
+  
+  const img = document.getElementById("image");
+  if (img) {
+    //https://res.cloudinary.com/${cloudName}/image/upload/${url}/{userId}.jpg`
+    const url = `https://res.cloudinary.com/${cloudName}/image/upload/nenny1_ewjwmw.jpg`;
+    img.src = url;
+  }
+
+  // const dashboard = document.getElementById("side_dashboard").addEventListener("click", (e) => {
+  //   if (user.permission === "admin".toUpperCase()) {
+  //     window.location.href = "dashboard-admin.html";
+  //   } else if (user.permission === "staff".toUpperCase()) {
+  //     window.location.href = "dashboard-staff.html";
+  //   } else if (user.permission === "user".toUpperCase()) {
+  //     window.location.href = "dashboard-user.html";
+  //   }
+  // });
+};
