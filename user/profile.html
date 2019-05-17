@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link rel="stylesheet" type="text/css" media="screen" href="../public/css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../public/../public/css/main.css" />
 
   <link rel="shortcut icon" href="../public/img/bicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="../public/img/bicon.png" />
   <link rel="icon" sizes="192x192" href="../public/img/bicon.png" />
 </head>
 
-<body>
+<body onload="getAccounts()">
   <label for="mobileShowmenu" class="mobileShowmenu">Show Menu</label>
   <input type="checkbox" role="button" id="mobileShowmenu" />
   <div class="sidemenu">
@@ -41,13 +41,13 @@
       </div>
       <div class="username">
         <p>
-          Welcome <span id="userName"></span> Joy</span>
+          Welcome <span id="userFirstname"></span>
         </p>
       </div>
     </div>
   </header>
   <div class="content-area">
-    <div class=".profiles-card">
+    <div class="profiles-card">
       <div class="card-wrapper">
         <div class="card-item">
           <img src="../public/img/nenny2.jpg" alt="loading" id="" class="cards-image" />
@@ -56,59 +56,38 @@
             <a href="uploadImage.html">Upload Photo</a>
           </div>
           <div class="username-styles">
-            <h4 id="userName">joy</h4>
+            <h4 id="userName"></h4>
           </div>
           <div class="useremail">
-            <h4 id="userEmail">joy@gmail.com</h4>
+            <h4 id="userEmail"></h4>
           </div>
           <div class="phonenumber">
-            <h4 id="userphonenumber">08023243567</h4>
+            <h4 id="userPhonenumber"></h4>
           </div>
         </div>
-        <div class="dcard-item-right">
-          <div class="card-item-right">
+        <div class="card-item-right">
             <div>
-              <h4 class="profile-acount-design">
-                Account: <span id="profileAccount">0980892310</span>
-              </h4>
-              <h4 class="profile-account-type-design">
-                Type: <span id="accountType">Current Account</span>
-              </h4>
-              <h4 class="profile-birthday-design">
-                Birthday: <span id="dob">2-12-1985</span>
-              </h4>
-              <h4 class="profile-gender-design">
-                Gender: <span id="Gender">Female</span>
-              </h4>
-              <h3 class="badge-success"><span id="active">Active</span></h3>
-            </div>
+              <h4 class="profile-design">
+                <div class="profile-select design semi-square">
+                  <select id="getAccount" class="select-account">
+                    <option value="account" disabled selected="true">Select Account</option>
+                  </select>
+                </div>
+                <div id="information"></div>
+                <div id="accountType"></div>
+                <div id="accountEmail"></div>
+                <div id="accountBalance"></div>
+                <div id="accountStatus"></div>
           </div>
         </div>
       </div>
-
-      <div class="card-item-right-small-view-content">
-        <div>
-          <h4 class="card-item-right-small-view">
-            Account: <span id="profileAccount">0980892310</span>
-          </h4>
-          <h4 class="card-item-right-small-view">
-            Type: <span id="accountType">Current Account</span>
-          </h4>
-          <h4 class="card-item-right-small-view">
-            Birthday: <span id="dob">2-12-1985</span>
-          </h4>
-          <h4 class="card-item-right-small-view">
-            Gender: <span id="Gender">Female</span>
-          </h4>
-          <h3 class="badge-success"><span id="active">Active</span></h3>
-        </div>
-
       </div>
+<div id="loading" class="loading">
+  Loading&#8230;
+</div>
     </div>
-
-  </div>
-  </div>
-  <script src="public/js/main.js"></script>
+  <script src="../public/js/main.js"></script>
+  <script src="../public/js/spinner.js"></script>
   <footer id="main-footer">
     <p>Copyright &copy; 2019 Banka All Right Reserved</p>
   </footer>
