@@ -61,18 +61,22 @@ h6 {
   }
 
 }
-
+/* signup */
+.signup {
+  justify-content: center;
+  width: 90% !important;
+}
 /* signin */
-.signin {
+.signin{
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 60%;
 }
 
-#signin-form {
-  width: 80%;
-  padding-bottom: 1rem;
+.ruler {
+  width: 90.4% !important;
+  margin-bottom: 1rem;
 }
 
 .logo {
@@ -115,7 +119,7 @@ h6 {
 
 .signin .secondary-btn,
 .or,
-.link {
+.link{
   width: 100%;
 }
 
@@ -131,7 +135,7 @@ h6 {
   text-decoration: none;
 }
 .signin .or,
-#signup .or {
+.signup .or {
   display: flex;
   flex-direction: row;
   margin: 0.9rem 0;
@@ -156,10 +160,10 @@ h6 {
   padding: 0 1.7rem;
 }
 
-/* showcase */ 
+/* showcase */
 #showcase h1,
 h3,
-#signup #login-nav p {
+.signup #login-nav p {
   text-align: center;
 }
 
@@ -241,7 +245,7 @@ h3,
   color: rgb(190, 195, 207);
 }
 
-#signup #firstname,
+.signup #firstname,
 #surname,
 #password,
 #confirm-password {
@@ -255,11 +259,11 @@ h3,
   line-height: 1.3rem;
 }
 
-#signup #password,
+.signup #password,
 #confirm-password {
   margin-top: 0.2rem;
 }
-#signup .user-email,
+.signup .user-email,
 .phone-number {
   margin-bottom: 1.3rem;
   width: 90%;
@@ -271,31 +275,31 @@ h3,
   line-height: 1.3rem;
 }
 
-#signup #signup-text {
+.signup #signup-text {
   text-align: center;
 }
 
-#signup {
+.signup {
   align-items: center;
   width: 100%;
   margin: 0 0 0 3rem;
 }
 
-#signup .primary-btn {
+.signup .primary-btn {
   width: 90%;
   margin: 0 2rem 2.3rem 0;
 }
-#signup input[type="number"]::-webkit-inner-spin-button,
+.signup input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
-#signup input,
+.signup input,
 #signin input {
   outline: none;
 }
-#signup .or,
+.signup .or,
 .secondary-btn {
   width: 90%;
 }
