@@ -45,6 +45,25 @@
 //       img.alt = response.public_id;
 //     });
 // }
+// let user = null;
+
+// const localUser = localStorage.getItem('user');
+// if (localUser) {
+//   user = JSON.parse(localUser);
+// }
+// console.log(user, "main");
+
+// const previewImage = (e) => {
+//   uploadFile(e.files[0]);
+// };
+
+
+// const cloudName = "dlbwtma20";
+// const unsignedUploadPreset = "ylmhasme";
+
+// const fileSelect = document.getElementById("fileSelect");
+// const fileElem = document.getElementById("fileElem");
+
 
 // // const uploadToServer = (avatarUrl) => {
 // //   fetch('v1/uploadProfile',
@@ -104,3 +123,64 @@ const goBack = () => {
   });
 }
 
+
+// const uploadToServer = (avatarUrl) => {
+//   fetch('v1/uploadProfile',
+//     {
+//       method: "POST",
+//       body: {
+//         photo: avatarUrl,
+//       }
+//     })
+
+//   )
+// }
+
+// const openModal = (current) => {
+//   const modal = document.getElementById(current);
+//   modal.style.display = "block";
+// };
+
+// const closeModal = (current) => {
+//   const modal = document.getElementById(current);
+//   modal.style.display = "none";
+// };
+
+// const deleteBtn = () => {
+//   window.location.href = "accounts.html";
+// };
+// const activateBtn = () => {
+//   window.location.href = "accounts.html";
+// };
+// eslint-disable-next-line no-unused-vars
+// const deactivateBtn = () => {
+//   window.location.href = "accounts.html";
+// };
+
+// document.onreadystatechange = () => {
+//   // eslint-disable-next-line no-empty
+//   if (document.readyState !== "complete") {
+//     return;
+//   }
+//   const usernameElements = document.getElementsByClassName("username-label");
+//   for (let i = 0; i < usernameElements.length; i++) {
+//       usernameElements[i].innerText = user.firstname; 
+//   }
+  
+//   const img = document.getElementById("image");
+//   if (img) {
+//     //https://res.cloudinary.com/${cloudName}/image/upload/${url}/{userId}.jpg`
+//     const url = `https://res.cloudinary.com/${cloudName}/image/upload/nenny1_ewjwmw.jpg`;
+//     img.src = url;
+//   }
+
+  // const dashboard = document.getElementById("side_dashboard").addEventListener("click", (e) => {
+  //   if (user.permission === "admin".toUpperCase()) {
+  //     window.location.href = "dashboard-admin.html";
+  //   } else if (user.permission === "staff".toUpperCase()) {
+  //     window.location.href = "dashboard-staff.html";
+  //   } else if (user.permission === "user".toUpperCase()) {
+  //     window.location.href = "dashboard-user.html";
+  //   }
+  // });
+// };
