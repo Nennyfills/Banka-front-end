@@ -1,96 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Banka | Create Account</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="css/main.css"
-    />
-    <link rel="shortcut icon" href="../public/bicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="../public/bicon.png" />
-    <link rel="icon" sizes="192x192" href= "../public/bicon.png" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Banka | Create Account</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../public/css/main.css" />
+  <link rel="shortcut icon" href="../public/img/bicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../public/img/bicon.png" />
+  <link rel="icon" sizes="192x192" href="../public/img/bicon.png" />
+</head>
 
-  <body>
-    <label for="mobileShowmenu" class="mobileShowmenu">Show Menu</label>
-    <input type="checkbox" role="button" id="mobileShowmenu" />
-    <div class="sidemenu">
-      <nav>
-        <div class="logo">
-          <h1><span>B</span>anka</h1>
-        </div>
-        <a href="profile.html">
-          <i class="far fa-user-circle"></i>Profile</a>
-        <a class="active" href="create.html"><i class="fas fa-plus-circle"></i>Create
-          Account</a>
-        <a href="transaction.html"><i class="fas fa-transgender-alt"></i>Transation
-          History</a>
-      </nav>
-    </div>
-    <header>
-      <div class="userarea">
-        <div id="logout">
-          <a href="../../index.html"><strong>Log Out</strong></a>
-        </div>
-        <div class="userimage">
-          <img src="../public/nenny1.jpg" alt="" />
-        </div>
-        <div class="username">
-          <p>
-            Welcome <span id="username"> Joy</span
-            >
-          </p>
-        </div>
+<body>
+  <label for="mobileShowmenu" class="mobileShowmenu">Show Menu</label>
+  <input type="checkbox" role="button" id="mobileShowmenu" />
+  <div class="sidemenu">
+    <nav>
+      <div class="logo">
+        <h1><span>B</span>anka</h1>
       </div>
-    </header>
+      <a href="profile.html">
+        <i class="far fa-user-circle"></i>Profile</a>
+      <a class="active" href="create.html"><i class="fas fa-plus-circle"></i>Create
+        Account</a>
+      <a href="transaction.html"><i class="fas fa-transgender-alt"></i>Transation
+        History</a>
+    </nav>
+  </div>
+  <header>
+    <div class="userarea">
+      <div id="logout">
+        <a href="../../index.html"><strong>Log Out</strong></a>
+      </div>
+      <div class="userimage">
+        <img src="../public/img/nenny1.jpg" alt="" />
+      </div>
+      <div class="username">
+        <p>
+          Welcome <span id="userFirstname"></span>
+        </p>
+      </div>
+    </div>
+  </header>
 
-    <div class="content-area">
-        <div class="card-item-create-user-acount">
-          <form action="dashboard.html">
-            <h1 id="create-text">Create your account</h1>
-            <div id="username">
-              <input type="text" name="firstname" placeholder="First name" id="firstname" required/>
-              <input type="text" name="surname" placeholder="surname" id="surname" />
-            </div>
-            <div id="useremail">
-              <input type="email" name="email" placeholder="Email" id="email"required />
-            </div>
-            <div id="phone-number-content">
-              <input type="number" name="phone-number" placeholder="Phone Number" id="phone-number" required/>
-            </div>
-            <select name="AcountType" id="usertype" required>
-              <option>Type of Account</option>
-              <option value="savings" id="createSavings">Savings</option>
-              <option value="current" id="createCurrent">Current</option>
-            </select>
-            <div id="birthday-content">
-              <h3>Birthday</h3>
-              <input type="date" name="dob" id="create-dob" required />
-            </div>
-            <div id="gender" class="gender">
-              <label for="male">Male</label>
-              <input type="radio" name="gender" id="gender-male" required/>
-              <label for="female">Female</label>
-              <input type="radio" name="gender" id="gender-female"required />
-            </div>
-            <button class="primary-btn" type="submit">Submit</button>
-          </form>
+  <div class="content-area">
+    <div class="card-item-create-user-acount">
+      <form action="dashboard.html">
+        <h1 id="create-text">Create your account</h1>
+        <!-- <div id="username">
+          <input type="text" name="firstname" placeholder="First name" id="firstname" required />
+          <input type="text" name="surname" placeholder="surname" id="surname" />
+        </div> -->
+        <div id="useremail">
+          <input type="email" name="email" placeholder="Email" id="email" required />
         </div>
+        <!-- <div id="phone-number-content">
+          <input type="number" name="phone-number" placeholder="Phone Number" id="phone-number" required />
+        </div> -->
+        <select name="AcountType" id="usertype" required>
+          <option>Type of Account</option>
+          <option value="savings" id="createSavings">Savings</option>
+          <option value="current" id="createCurrent">Current</option>
+        </select>
+        <!-- <div id="birthday-content">
+          <h3>Birthday</h3>
+          <input type="date" name="dob" id="create-dob" required />
+        </div> -->
+        <!-- <div id="gender" class="gender">
+          <label for="male">Male</label>
+          <input type="radio" name="gender" id="gender-male" required />
+          <label for="female">Female</label>
+          <input type="radio" name="gender" id="gender-female" required />
+        </div> -->
+        <button class="primary-btn" type="submit">Submit</button>
+      </form>
+    </div>
     <footer id="main-footer">
       <p>Copyright &copy; 2019 Banka All Right Reserved</p>
     </footer>
-    </div>
-    <script src="public/main.js"></script>
-  </body>
+  </div>
+  <script src="../public/js/main.js"></script>
+</body>
+
 </html>
