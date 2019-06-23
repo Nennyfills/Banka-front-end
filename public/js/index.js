@@ -1,12 +1,11 @@
 const logMeIn = async (e) => {
   e.preventDefault();
+
   const email = document.getElementById("username").value;
   const password = document.getElementById("userpassword").value;
   const content = document.getElementById("login-respond");
-
-  const url = "http://localhost:8000/api/v1/auth/login"
-  const payload = JSON.stringify({ email, password })
-  
+  const url = "https://banka-nenny.herokuapp.com/api/v1/auth/login"
+  const payload = JSON.stringify({ email, password });
   showSpinner();
 
   try {
@@ -17,42 +16,50 @@ const logMeIn = async (e) => {
         mode: "cors",
         cache: "no-cache",
         headers: {
-            "Content-Type": "application/json",
+          "Content-Type": "application/json",
         },
-    });
-
+      });
     if (!response.ok) {
       hideSpinner();
-      
       const json = await response.json()
-
+      console.log(json, "hello")
       content.style.display = 'block';
       content.innerText = json.message;
-      return;      
+      return;
     }
-    
-    const json = await response.json();
-    console.log(json)
-    const { token, user } = json;
-
-    console.log(user);
-    localStorage.setItem('token', token);
-    localStorage.setItem("user", JSON.stringify(user));
-    
-    if (user.permission === 'ADMIN') {
+    const { data, message } = await response.json();
+    const { user, token } = data;
+    const localData = {
+      token,
+      id : user.id,
+      firstname : user.firstname,
+      surname : user.surname,
+      phonenumber: user.phonenumber,
+      permission: user.permission,
+      isadmin: user.isadmin,
+      email: user.email,
+      imgurl: user.imgurl,
+    }    
+    localStorage.setItem("user", JSON.stringify(localData))
+        console.log(user);
+    const { permission} = user;
+    if (permission === 'ADMIN') {
+      content.innerText = message;
       window.location.href = "user/dashboard-admin.html";
-  
-    } if (user.permission === 'STAFF') {
+
+    } if (permission === 'STAFF') {
+      content.innerText = message;
       window.location.href = "user/dashboard-staff.html";
       return false;
     } else {
       window.location.href = "user/profile.html";
+      console.log(user.firstname)
+      firstname.innerHTML = user.firstname;
       return false;
     }
-
   } catch (error) {
     hideSpinner();
-    console.error(`Failed to retrieve user informations: (${error})`);
+    content.innerText = `Failed to retrieve user informations: ${error}`;
   }
 
   return false;
