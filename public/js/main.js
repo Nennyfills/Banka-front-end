@@ -45,6 +45,7 @@
 //       img.alt = response.public_id;
 //     });
 // }
+
 // let user = null;
 
 // const localUser = localStorage.getItem('user');
@@ -122,7 +123,73 @@ const goBack = () => {
     }
   });
 }
-
+const user = JSON.parse(localStorage.getItem("user"));
+document.getElementById("userFirstname").innerText = user.firstname;
+document.getElementById("userName").innerText = `${user.firstname} ${user.surname}`;
+document.getElementById("userEmail").innerText = user.email;
+document.getElementById("userPhonenumber").innerText = user.phonenumber;
+let account;
+const getAccounts = async () => {
+  let information = document.getElementById('information');
+  const url = `https://banka-nenny.herokuapp.com/api/v1/user/accounts/${user.id}`;
+  const token = user.token
+  const myHeaders = new Headers();
+  myHeaders.append('Content-Type', 'application/json');
+  myHeaders.append('Authorization', token);
+  showSpinner();
+  try {
+    const response = await fetch(url,
+      {
+        method: 'GET',
+        mode: "cors",
+        cache: "no-cache",
+        headers: myHeaders,
+      });
+    if (!response.ok) {
+      hideSpinner();
+      const json = await response.json()
+      return information.innerHTML = `<h4 class="profile-design info">
+                 ${json.message}, please open an account.
+              </h4 >`;
+    }
+    const { data, message } = await response.json();
+    account = data;
+    // localStorage.setItem("account", JSON.stringify(data))
+    let optionList = document.getElementById('getAccount').options;
+    let select = document.querySelector('.select-account');
+    data.forEach(option => optionList.add(new Option(option.accountnumber, option.id)))
+    select.addEventListener('change', displaySelectedAccount);
+  }
+  catch (error) {
+    hideSpinner();
+    console.log(error, "hi");
+  }
+}
+// let account;
+// if(!account){
+//   account = null;
+// }else {
+//  account = JSON.parse(localStorage.getItem("account"));
+// }
+const getAccountDetails = accountId => account.find(({ id }) => id == accountId);
+const displaySelectedAccount = ({ target }) => {
+  let accountType = document.getElementById('accountType');
+  let accountEmail = document.getElementById('accountEmail');
+  let accountBalance = document.getElementById('accountBalance');
+  let accountStatus = document.getElementById('accountStatus');
+  const account = getAccountDetails(target.value);
+  const { email, balance, status, type } = account;
+  accountType.innerHTML = `<h4 class="profile-design">
+                Type of Account: ${type}
+              </h4 >`;
+  accountEmail.innerHTML = `<h4 class="profile-design">
+                Account Email: ${email}
+              </h4 >`;
+  accountBalance.innerHTML = `<h4 class="profile-design">
+                Balance: ${balance}
+              </h4 >`;
+  accountStatus.innerHTML = status === "active" ? `<h3 class="badge-success">${status}</h3>` : `<h3 class="badge-danger">${status}</h3>`;
+}
 
 // const uploadToServer = (avatarUrl) => {
 //   fetch('v1/uploadProfile',
