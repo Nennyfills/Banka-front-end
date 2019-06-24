@@ -26,8 +26,7 @@ const logMeIn = async (e) => {
       content.style.display = 'block';
       content.innerText = json.message;
       return;
-    }
-    
+    } 
     const {data} = await response.json();
     const { token, user} = data;
     const localData = { ...user, token }
@@ -66,8 +65,6 @@ const signMeUp = async (e) => {
   const payload = JSON.stringify({ firstname, surname, email, phonenumber, password })
   console.log(payload);
 
-  // showSpinner();
-
   try {
     if (password !== confirm_password) {
       content.style.display = 'block';
@@ -85,8 +82,6 @@ const signMeUp = async (e) => {
         },
       });
     if (!response.ok) {
-      // hideSpinner();
-
       const json = await response.json()
 
       content.style.display = 'block';
@@ -108,7 +103,6 @@ const signMeUp = async (e) => {
     }
 
   } catch (error) {
-    // hideSpinner();
     console.error(`Failed to retrieve user informations: (${error})`);
   }
 
