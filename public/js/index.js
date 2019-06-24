@@ -26,23 +26,20 @@ const logMeIn = async (e) => {
       content.style.display = 'block';
       content.innerText = json.message;
       return;
-    }
-    
+    } 
     const {data} = await response.json();
     const { token, user} = data;
-    localStorage.setItem('token', token);
-    localStorage.setItem("user", JSON.stringify(user));
-    
-    if (user.permission === 'ADMIN') {
+    const localData = { ...user, token }
+    localStorage.setItem("user", JSON.stringify(localData))
+    const { permission } = user;
+    if (permission === 'ADMIN') {
       window.location.href = "user/dashboard-admin.html";
       return false;
-    } if (user.permission === 'STAFF') {
+    } if (permission === 'STAFF') {
       window.location.href = "user/dashboard-staff.html";
       return false;
     } else {
       window.location.href = "user/profile.html";
-      console.log(user.firstname)
-      firstname.innerHTML = user.firstname;
       return false;
     }
   } catch (error) {
@@ -68,8 +65,6 @@ const signMeUp = async (e) => {
   const payload = JSON.stringify({ firstname, surname, email, phonenumber, password })
   console.log(payload);
 
-  // showSpinner();
-
   try {
     if (password !== confirm_password) {
       content.style.display = 'block';
@@ -87,24 +82,19 @@ const signMeUp = async (e) => {
         },
       });
     if (!response.ok) {
-      // hideSpinner();
-
       const json = await response.json()
 
       content.style.display = 'block';
       content.innerText = json.message;
       return;
     }
-
-   const { data } = await response.json();
-    console.log(data);
-  
-    localStorage.setItem("user", JSON.stringify(data));
-
-    if (data.permission === 'ADMIN') {
+    const { data } = await response.json();
+    localStorage.setItem("user", JSON.stringify(data))
+    const { permission } = data;
+    if (permission === 'ADMIN') {
       window.location.href = "dashboard-admin.html";
       return false;
-    } if (data.permission === 'STAFF') {
+    } if (permission === 'STAFF') {
       window.location.href = "dashboard-staff.html";
       return false;
     } else {
@@ -113,7 +103,6 @@ const signMeUp = async (e) => {
     }
 
   } catch (error) {
-    // hideSpinner();
     console.error(`Failed to retrieve user informations: (${error})`);
   }
 
