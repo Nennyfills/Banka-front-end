@@ -20,6 +20,7 @@ footer {
    background-color: #fff;
    color:rgb(24, 19, 94);
    text-align: center;
+   z-index: 999;
 }
 h1,
 h2,
@@ -69,13 +70,13 @@ h6 {
   transition: all 0.2s ease-in-out;
 }
 .sidemenu nav a:hover {
-  background-color: #92a5de;
+  background-color: #302d43;
   padding: 15px 50px 15px 40px;
 }
 
 .sidemenu nav a:hover:before {
   color: #f7f7f7;
-  background-color: #92a5de;
+  background-color: #767580;
   border-left: #d8f0bb 5px solid;
   padding: 15px 30px 15px 25px;
 }
@@ -209,23 +210,6 @@ header .username {
    align-content: center;
    align-items: center;
    margin: 40px;
-
- }
-
-.card-item-right-small-view{
-    align-items: center;
-    text-align: center;
-    background-color: #ebeef8;
-    align-items: center;
-    height: 100%;;
-    justify-content: center;
-    margin: 3rem 9px;
-    padding:1rem;
-    box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2);  
- }
-
- .card-item-right-small-view-content{
-   display: none;
  }
 
   .card-item{
@@ -234,7 +218,7 @@ header .username {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width:20rem;
+    width:100%;
     background-color: #ebeef8;
     align-items: center;
     justify-content: center;
@@ -242,21 +226,21 @@ header .username {
     box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2); 
   }
   .card-item-right{
-     flex: 1;
+    flex: 1;
     display: flex;
     justify-content: center;
     text-align: center;
-    width:20rem;
     background-color: #ebeef8;
     align-items: center;
     justify-content: center;
-    margin: 3rem 10px;;
-    box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2); 
+    padding:0 0.5rem;
+    margin: 1rem 1rem;;
+    box-shadow: 0.5rem 0.5rem 3rem rgba(0,0,0,0.2); 
   }
 
   .cards-image{
     width: 100%  !important;
-    height: 19rem;
+    height: 20rem;
     object-fit:cover; 
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 47%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 47%, 0 100%);
@@ -268,6 +252,8 @@ header .username {
     object-fit: cover;
      border-radius:50%;
      margin-top:-13rem;
+     margin-left: 2rem;
+     margin-right: 2rem;
      z-index: 999;
      border: 1px solid #ebeef8;
      margin-bottom:8px;
@@ -283,7 +269,6 @@ header .username {
 
 .upload {
   color: #282639;
-  width: 0%;
   margin: auto;
 }
 .upload a {
@@ -323,25 +308,51 @@ header .username {
   margin: 1rem;
 }
 
-.profile-account-type-design,
-.profile-email-design,
-.profile-firstName-design,
-.profile-acount-design,
-.profile-birthday-design,
-.profile-gender-design {
+.profile-design {
   color: #494646;
   padding: 30px 20px 10px 30px;
   height: 100%;
+  width: 100%;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 }
-
-.badge-success {
-  width: 50%;
-  margin:  40px auto;
-  margin-bottom :5rem;
+.info{
+  background-color: red;
+  color: #fff;
 }
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+.profile-select {
+   background:url(../img/caret-square-down-solid.svg) no-repeat right center;
+   border: 1px solid #ccc;
+   height: 34px;
+   width: 240px;
+   overflow: hidden;
+   margin: auto;
+}
+
+.profile-select select{
+  background: transparent;
+   border: none;
+   height: 29px;
+   padding: 5px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+.profile-select.design select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 260px;
+  background: transparent;
+}
+
 .card-item-create-view{
   padding: 10px 0 20px 0;
   align-items: center;
@@ -404,8 +415,9 @@ header .username {
 
 /* search button */
 form {
-  width: 50%;
+  width: 100%;
   margin: 40px auto;
+  text-align: center;
 }
 .searchItem input[type="date"] {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
@@ -419,7 +431,7 @@ form {
   font-size: 18px;
   font-family: 'Courier New', Courier, monospace;
   color: white;
-  border-radius: 2px; 
+  border-radius: 1px; 
   padding:5px;
 
 }
@@ -432,15 +444,14 @@ form {
   background-color:#201d38;
   color: white;
   padding:8px;
-  border-radius: 2px; 
+  border-radius: 1px; 
   cursor: pointer;
 }  
 .searchItem  button:hover{
-  background-color: #92a5de
+  background-color:  #634eeb
 }
 
 /* credit and debit design */
-
 .card-form-design {
   color: #494646;
   background-color: #fff;
@@ -470,9 +481,8 @@ form {
 .admin-name,
 .admin-password,
 .confirm-admin-password {
-  /* margin-bottom: 1.3rem; */
-  width: 100% ;
-  margin: 5px auto;
+  width: 80% ;
+  margin: 10px auto;
   border-radius: 2px;
   background: #3a3838;
   border: solid 1px #555;
@@ -483,7 +493,19 @@ form {
 }
 
 .card-item-create-acount .primary-btn {
-  width: 100% !important;
+  width: 80% !important;
+  margin: 0  auto !important;
+}
+.card-item-create-acount{
+    text-align: center;
+    background-color: #ebeef8;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: 5rem auto;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2); 
 }
 .credit-account-number,
 .debit-account-number,
@@ -495,10 +517,9 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 /* create account design */
-
-.card-item-create-acount #create-text {
-  text-align: center;
-  padding-bottom: 2rem;
+.card-item-create-acount #create-text, .card-item-create-acount h1 {
+  text-align: center ;
+  padding: 1rem;
 }
 
 #firstname,
@@ -507,11 +528,9 @@ input[type="number"]::-webkit-outer-spin-button {
 #comfirm-password ,
 #email,
 #phone-number,
-#address,
-#create-dob,
 #usertype {
   margin-bottom: 1.3rem;
-  width: 100%;
+  width: 80%;
   border-radius: 2px;
   background: #302d43;
   border: solid 1px #555;
@@ -520,28 +539,24 @@ input[type="number"]::-webkit-outer-spin-button {
   line-height: 1.3rem;
   font-size: 1rem;
 }
-.gender {
-  padding-bottom: 1rem;
-  font-size: 1rem;
-}
 .card-item-create-user-acount .primary-btn{
-  margin-bottom: 5rem;
-  width: 100%;
+  margin: 2rem auto;
+  width: 80%;
 }
 .card-item-create-user-acount{
   text-align: center;
 }
-.card-item-create-user-acount 
+.card-item-create-user-acount ,
 .card-item-create-acount{
-  padding: 10px 0 20px 0;
-  align-items: center;
-  width: 80%;
   text-align: center;
   background-color: #ebeef8;
   align-items: center;
   justify-content: center;
-  margin: 5rem  auto;
-  box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2);
+  width: 50%;
+  margin: 5rem auto;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2); 
 }
 
 .card-item-create-view-size{
@@ -595,11 +610,24 @@ th,
 .badge-success {
   background-color: green;
   color: white;
-  height: 2.3rem;
+  height: 2rem; 
   font-weight: 500;
   border-radius: 2px;
   padding: 5px;
   text-align: center;
+  width: 80%;
+  margin:  40px auto;
+}
+.badge-danger {
+  background-color: red;
+  color: white;
+  height: 2rem;
+  font-weight: 500;
+  border-radius: 2px;
+  padding: 5px;
+  text-align: center;
+  width: 80%;
+  margin:  40px auto;
 }
 /* modal */
 .modal {
@@ -613,7 +641,6 @@ th,
   overflow: auto;
   background-color: rgb(0, 0, 0, 0.2);
 }
-
 .modalDelete {
   display: none;
   position: fixed;
@@ -717,6 +744,7 @@ input[type="checkbox"]:checked ~ .sidemenu {
   color: #fff;
   background-color: #302d43;
   text-align: center;
+  justify-content: center;
   padding: 10px 0;
   display: none;
 }
@@ -789,7 +817,7 @@ input[type="checkbox"]:checked ~ .sidemenu {
 @media only screen and (max-width: 760px),
   (min-device-width: 768px) and (max-device-width: 1024px) {
     .card-item-create-user-acount{
-   padding: 10px 0 20px 0;
+  padding: 10px 0 20px 0;
   align-items: center;
   width: 100% !important;
   text-align: center;
@@ -799,21 +827,25 @@ input[type="checkbox"]:checked ~ .sidemenu {
   margin: 5rem  auto;
   box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2);
 }
-    header #logout a :hover{
+  header #logout a :hover{
   text-decoration: none;
   color: #634eeb;
 }
-    .card-item-right-small-view-content{
-      margin: auto;
-    display: block;
-  }
-  .card-item-right{
-    display: none;
-  }form {
+  .card-wrapper{
+  display: flex;
+  flex-direction: column;
+   align-content: center;
+   align-items: center;
+   margin: 4rem;
+ }
+ .card-item-right{
+    flex: 2;
+ }
+  form {
     margin: auto;
   }
 
- .searchItem input[type="date"] {
+.searchItem input[type="date"] {
   padding:5px;
   width: 30%;
 }
@@ -822,6 +854,12 @@ input[type="checkbox"]:checked ~ .sidemenu {
   font-size: 18px;
   margin :9px 30%;
 }  
+.logo h1 {
+  font-size: 2rem !important;
+}
+.logo h1 span {
+  font-size: 3rem !important;
+}
   table,
   thead,
   tbody,
@@ -878,10 +916,10 @@ input[type="checkbox"]:checked ~ .sidemenu {
     content: "casher";
   }
   td:nth-of-type(6):before {
-    content: "Old balance";
+    content: "Old Balance";
   }
   td:nth-of-type(7):before {
-    content: " New balance";
+    content: " New Balance";
   }
   .account-td:nth-of-type(1):before {
     content: "ID";

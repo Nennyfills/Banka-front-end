@@ -1,126 +1,85 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Banka | Create New Staff</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="css-folder/main.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-
-    <link rel="shortcut icon" href="../public/bicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="../public/bicon.png" />
-    <link rel="icon" sizes="192x192" href="../public/bicon.png" />
-  </head>
-
-  <body>
-    <label for="mobileShowmenu" class="mobileShowmenu">Show Menu</label>
-    <input type="checkbox" role="button" id="mobileShowmenu" />
-    <div class="sidemenu">
-      <nav>
-        <div class="logo">
-          <h1><span>B</span>anka</h1>
-        </div>
-        <ul>
-          <li>
-            <a href="dashboard-admin.html">
-            <i class="fas fa-tachometer-alt"></i>Dashboard</a
-            >
-          </li>
-          <li>
-            <a href="accounts.html">
-            <i class="far fa-user-circle"></i>Account</a
-            >
-          </li>
-
-          <li>
-            <a class="active"
-            ><i class="fas fa-plus-circle"></i>Create
-              Account</a
-            >
-            <ul class="hidden">
-              <li>
-                <a class="active" href="create-staff.html"
-                  ><i class="fas fa-plus-circle"></i>
-                  Staff Account
-                </a>
-              </li>
-              <li>
-                <a href="create-admin.html"
-                  ><i class="fas fa-plus-circle"></i>Admin Account</a
-                >
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <header>
-      <div class="userarea">
-        <div id="logout">
-          <a href="../../index.html"><strong>Log Out</strong></a>
-        </div>
-        <div class="userimage">
-          <img src="../public/nenny1.jpg" alt="" />
-        </div>
-        <div class="username">
-          <p>
-            Welcome <span id="username">Admin1</span
-            >
-          </p>
-        </div>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Banka | Create New Staff</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../public/css/main.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="shortcut icon" href="../public/img/bicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../public/img/bicon.png" />
+  <link rel="icon" sizes="192x192" href="../public/img/bicon.png" />
+</head>
+<body>
+  <label for="mobileShowmenu" class="mobileShowmenu">Show Menu</label>
+  <input type="checkbox" role="button" id="mobileShowmenu" />
+  <div class="sidemenu">
+    <nav>
+      <div class="logo">
+        <h1><span>B</span>anka</h1>
       </div>
-    </header>
+      <ul>
+        <li>
+          <a href="dashboard-admin.html">
+            <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+        </li>
+        <li>
+          <a href="accounts.html">
+            <i class="far fa-user-circle"></i>Account</a>
+        </li>
 
-    <div class="content-area">
-        <div class="card-item-create-acount">
-          <h1>Create New Staff</h1>
-          <form action="dashboard.html">
-            <input
-              type="text"
-              name="staff-name"
-              placeholder="Username"
-              class="staff-name"
-              required
-            />
-            <input
-              type="email"
-              name="staff-email"
-              placeholder="Email"
-              class="staff-email"
-              required
-            />
-            <input
-              type="password"
-              name="staff-password"
-              placeholder="Password"
-              class="staff-password"
-              required
-            />
-            <input
-              type="password"
-              name="confirm-staff-password"
-              placeholder="Confirm Password"
-              class="confirm-staff-password"
-              required
-            />
-            <button class="primary-btn">Submit</button>
-          </form>
+        <li>
+          <a class="active"><i class="fas fa-plus-circle"></i>Create
+            Account</a>
+          <ul class="hidden">
+            <li>
+              <a class="active" href="create-staff.html"><i class="fas fa-plus-circle"></i>
+                Staff Account
+              </a>
+            </li>
+            <li>
+              <a href="create-admin.html"><i class="fas fa-plus-circle"></i>Admin Account</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <header>
+    <div class="userarea">
+      <div id="logout">
+        <a href="../index.html"><strong>Log Out</strong></a>
       </div>
-      <footer id="main-footer">
-        <p>Copyright &copy; 2019 Banka All Right Reserved</p>
-      </footer>
+      <div class="userimage">
+        <img src="../public/img/nenny1.jpg" alt="" />
+      </div>
+      <div class="username">
+        <p>
+          Welcome <span id="userFirstname"></span>
+        </p>
+      </div>
     </div>
-    <script src="js-folder/main.js"></script>
-  </body>
+  </header>
+
+  <div class="content-area">
+    <div class="card-item-create-acount">
+      <h1>Create New Staff</h1>
+      <form action="dashboard.html">
+        <input type="text" name="staff-name" placeholder="Username" class="staff-name" required />
+        <input type="email" name="staff-email" placeholder="Email" class="staff-email" required />
+        <input type="password" name="staff-password" placeholder="Password" class="staff-password" required />
+        <input type="password" name="confirm-staff-password" placeholder="Confirm Password"
+          class="confirm-staff-password" required />
+        <button class="primary-btn">Submit</button>
+      </form>
+    </div>
+    <footer id="main-footer">
+      <p>Copyright &copy; 2019 Banka All Right Reserved</p>
+    </footer>
+  </div>
+  <script src="../public/js/main.js"></script>
+</body>
+
 </html>

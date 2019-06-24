@@ -37,42 +37,46 @@ h6 {
   flex: 1;
   text-align: center;
   justify-content: center;
-  background: url("../public/wallpaper.jpg") no-repeat;
+  background: url("../img/wallpaper.jpg") no-repeat;
   background-size: 100% 100%;
   animation: slider 15s infinite linear;
 }
 
 @keyframes slider {
   20% {
-    background: url("../public/wallpaper1.jpg") no-repeat;
+    background: url("../img/wallpaper1.jpg") no-repeat;
     background-size: 100% 100%;
   }
   35% {
-    background: url("../public/wallpaper2.jpg") no-repeat;
+    background: url("../img/wallpaper2.jpg") no-repeat;
     background-size: 100% 100%;
   }
   75% {
-    background: url("../public/wallpaper3.jpg") no-repeat;
+    background: url("../img/wallpaper3.jpg") no-repeat;
     background-size: 100% 100%;
   }
   120% {
-    background: url("../public/wallpaper4.jpg") no-repeat;
+    background: url("../img/wallpaper4.jpg") no-repeat;
     background-size: 100% 100%;
   }
 
 }
-
+/* signup */
+.signup {
+  justify-content: center;
+  width: 90% !important;
+}
 /* signin */
-.signin {
+.signin{
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 60%;
 }
 
-#signin-form {
-  width: 80%;
-  padding-bottom: 1rem;
+.ruler {
+  width: 90.4% !important;
+  margin-bottom: 1rem;
 }
 
 .logo {
@@ -115,7 +119,7 @@ h6 {
 
 .signin .secondary-btn,
 .or,
-.link {
+.link{
   width: 100%;
 }
 
@@ -131,7 +135,7 @@ h6 {
   text-decoration: none;
 }
 .signin .or,
-#signup .or {
+.signup .or {
   display: flex;
   flex-direction: row;
   margin: 0.9rem 0;
@@ -156,10 +160,10 @@ h6 {
   padding: 0 1.7rem;
 }
 
-showcase
+/* showcase */
 #showcase h1,
 h3,
-#signup #login-nav p {
+.signup #login-nav p {
   text-align: center;
 }
 
@@ -225,7 +229,6 @@ h3,
 
 .secondary-btn {
   padding: 0.7rem 1rem;
-  /* height: 2.7rem; */
   display: block;
   border: 1px solid #f4f4f4;
   border-radius: 2px;
@@ -242,7 +245,7 @@ h3,
   color: rgb(190, 195, 207);
 }
 
-#signup #firstname,
+.signup #firstname,
 #surname,
 #password,
 #confirm-password {
@@ -256,11 +259,11 @@ h3,
   line-height: 1.3rem;
 }
 
-#signup #password,
+.signup #password,
 #confirm-password {
   margin-top: 0.2rem;
 }
-#signup .user-email,
+.signup .user-email,
 .phone-number {
   margin-bottom: 1.3rem;
   width: 90%;
@@ -272,31 +275,31 @@ h3,
   line-height: 1.3rem;
 }
 
-#signup #signup-text {
+.signup #signup-text {
   text-align: center;
 }
 
-#signup {
+.signup {
   align-items: center;
   width: 100%;
   margin: 0 0 0 3rem;
 }
 
-#signup .primary-btn {
+.signup .primary-btn {
   width: 90%;
   margin: 0 2rem 2.3rem 0;
 }
-#signup input[type="number"]::-webkit-inner-spin-button,
+.signup input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
-#signup input,
+.signup input,
 #signin input {
   outline: none;
 }
-#signup .or,
+.signup .or,
 .secondary-btn {
   width: 90%;
 }
@@ -311,6 +314,45 @@ input[type="number"]::-webkit-outer-spin-button {
     height: 100vh;
   }
 }
+@media (min-height: 1360px) {
+  #left {
+    flex: 4;
+    padding-top: 15rem;
+  }
+  #right {
+    flex: 5;
+    height: 100vh;
+    padding-top: 15rem
+  }
+  #main-footer {
+    padding-top: 30rem;
+  }
+}
+@media (min-height: 1024px) {
+  #left {
+    flex: 4;
+    padding-top: 15rem;
+  }
+  #right {
+    flex: 5;
+    height: 100vh;
+    padding-top: 15rem
+  }
+  #main-footer {
+    padding-top: 10rem;
+  }
+}
+@media (max-width: 320px){
+  body{
+    overflow: auto;
+  }
+  #left {
+    padding-right:1rem;
+  }
+  #right {
+    display: none;
+  }
+}
 
 @media screen and (max-width: 760px) {
   #right {
@@ -318,7 +360,6 @@ input[type="number"]::-webkit-outer-spin-button {
   }
   #left {
     justify-content: center;
-    /* margin-top: -2rem; */
     margin: auto;
   }
   .signin .logo {
@@ -331,8 +372,3 @@ input[type="number"]::-webkit-outer-spin-button {
     padding-top: 1rem;
   }
 }
-
-
-
-
-
