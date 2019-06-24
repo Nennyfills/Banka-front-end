@@ -78,28 +78,6 @@
 // //   )
 // // }
 
-// // ///////////////////////////////////////////////////////
-
-// const openModal = (current) => {
-//   const modal = document.getElementById(current);
-//   modal.style.display = "block";
-// };
-
-// const closeModal = (current) => {
-//   const modal = document.getElementById(current);
-//   modal.style.display = "none";
-// };
-
-// const deleteBtn = () => {
-//   window.location.href = "accounts.html";
-// };
-// const activateBtn = () => {
-//   window.location.href = "accounts.html";
-// };
-// // eslint-disable-next-line no-unused-vars
-// const deactivateBtn = () => {
-//   window.location.href = "accounts.html";
-// };
 
 // document.onreadystatechange = () => {
 //   // eslint-disable-next-line no-empty
@@ -125,14 +103,11 @@ const goBack = () => {
 }
 const user = JSON.parse(localStorage.getItem("user"));
 document.getElementById("userFirstname").innerText = user.firstname;
-document.getElementById("userName").innerText = `${user.firstname} ${user.surname}`;
-document.getElementById("userEmail").innerText = user.email;
-document.getElementById("userPhonenumber").innerText = user.phonenumber;
-let account;
+
 const getAccounts = async () => {
   let information = document.getElementById('information');
   const url = `https://banka-nenny.herokuapp.com/api/v1/user/accounts/${user.id}`;
-  const token = user.token
+  const token = user.token;
   const myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
   myHeaders.append('Authorization', token);
@@ -154,7 +129,6 @@ const getAccounts = async () => {
     }
     const { data, message } = await response.json();
     account = data;
-    // localStorage.setItem("account", JSON.stringify(data))
     let optionList = document.getElementById('getAccount').options;
     let select = document.querySelector('.select-account');
     data.forEach(option => optionList.add(new Option(option.accountnumber, option.id)))
@@ -162,15 +136,10 @@ const getAccounts = async () => {
   }
   catch (error) {
     hideSpinner();
-    console.log(error, "hi");
+    console.log(`Failed to retrieve user informations: ${error}`);
   }
 }
-// let account;
-// if(!account){
-//   account = null;
-// }else {
-//  account = JSON.parse(localStorage.getItem("account"));
-// }
+
 const getAccountDetails = accountId => account.find(({ id }) => id == accountId);
 const displaySelectedAccount = ({ target }) => {
   let accountType = document.getElementById('accountType');
@@ -189,65 +158,63 @@ const displaySelectedAccount = ({ target }) => {
                 Balance: ${balance}
               </h4 >`;
   accountStatus.innerHTML = status === "active" ? `<h3 class="badge-success">${status}</h3>` : `<h3 class="badge-danger">${status}</h3>`;
+return;
 }
 
-// const uploadToServer = (avatarUrl) => {
-//   fetch('v1/uploadProfile',
-//     {
-//       method: "POST",
-//       body: {
-//         photo: avatarUrl,
-//       }
-//     })
+const openModal = (current) => {
+  const modal = document.getElementById(current);
+  modal.style.display = "block";
+};
+const closeModal = (current) => {
+  const modal = document.getElementById(current);
+  modal.style.display = "none";
+};
+const deleteBtn = () => {
+  window.location.href = "accounts.html";
+};
+const activateBtn = () => {
+  window.location.href = "accounts.html";
+};
+const deactivateBtn = () => {
+  window.location.href = "accounts.html";
+};
 
-//   )
-// }
+ const createAccount = async (e) =>{
+  e.preventDefault();
+   const openingbalance = document.getElementById("openingbalance").value;
+   const type = document.getElementById("usertype").value;  
+   const content = document.getElementById("login-respond");
+   const url = "https://banka-nenny.herokuapp.com/api/v1/accounts"
+   const payload = JSON.stringify({ openingbalance, type});
+   const user = JSON.parse(localStorage.getItem("user"));
+   const token = user.token;
+   const myHeaders = new Headers();
+   myHeaders.append('Content-Type', 'application/json');
+   myHeaders.append('Authorization', token);
+   try {
+     const response = await fetch(url,
+       {
+         method: 'POST',
+         body: payload,
+         mode: "cors",
+         cache: "no-cache",
+         headers: myHeaders,
+       });
+     if (!response.ok) {
+       const {message} = await response.json()
+       content.style.display = 'block';
+       content.innerHTML = `<h4 style="background: rgb(231, 37, 37)">${message.messag}</h4>`;
+       return;
+     }
 
-// const openModal = (current) => {
-//   const modal = document.getElementById(current);
-//   modal.style.display = "block";
-// };
+     const {data, message} = await response.json();
+     content.style.display = 'block';
+     content.innerHTML = `<h4 style="color:black">${message}, here is your 
+                      ${data.type} account number ${data.accountnumber}</h4>`;
+                      
+   } catch (error) {
+     content.innerText = `Failed to retrieve user informations: ${error}`;
+   }
 
-// const closeModal = (current) => {
-//   const modal = document.getElementById(current);
-//   modal.style.display = "none";
-// };
-
-// const deleteBtn = () => {
-//   window.location.href = "accounts.html";
-// };
-// const activateBtn = () => {
-//   window.location.href = "accounts.html";
-// };
-// eslint-disable-next-line no-unused-vars
-// const deactivateBtn = () => {
-//   window.location.href = "accounts.html";
-// };
-
-// document.onreadystatechange = () => {
-//   // eslint-disable-next-line no-empty
-//   if (document.readyState !== "complete") {
-//     return;
-//   }
-//   const usernameElements = document.getElementsByClassName("username-label");
-//   for (let i = 0; i < usernameElements.length; i++) {
-//       usernameElements[i].innerText = user.firstname; 
-//   }
-  
-//   const img = document.getElementById("image");
-//   if (img) {
-//     //https://res.cloudinary.com/${cloudName}/image/upload/${url}/{userId}.jpg`
-//     const url = `https://res.cloudinary.com/${cloudName}/image/upload/nenny1_ewjwmw.jpg`;
-//     img.src = url;
-//   }
-
-  // const dashboard = document.getElementById("side_dashboard").addEventListener("click", (e) => {
-  //   if (user.permission === "admin".toUpperCase()) {
-  //     window.location.href = "dashboard-admin.html";
-  //   } else if (user.permission === "staff".toUpperCase()) {
-  //     window.location.href = "dashboard-staff.html";
-  //   } else if (user.permission === "user".toUpperCase()) {
-  //     window.location.href = "dashboard-user.html";
-  //   }
-  // });
-// };
+   return false;
+ };

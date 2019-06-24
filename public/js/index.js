@@ -30,19 +30,17 @@ const logMeIn = async (e) => {
     
     const {data} = await response.json();
     const { token, user} = data;
-    localStorage.setItem('token', token);
-    localStorage.setItem("user", JSON.stringify(user));
-    
-    if (user.permission === 'ADMIN') {
+    const localData = { ...user, token }
+    localStorage.setItem("user", JSON.stringify(localData))
+    const { permission } = user;
+    if (permission === 'ADMIN') {
       window.location.href = "user/dashboard-admin.html";
       return false;
-    } if (user.permission === 'STAFF') {
+    } if (permission === 'STAFF') {
       window.location.href = "user/dashboard-staff.html";
       return false;
     } else {
       window.location.href = "user/profile.html";
-      console.log(user.firstname)
-      firstname.innerHTML = user.firstname;
       return false;
     }
   } catch (error) {
@@ -95,16 +93,13 @@ const signMeUp = async (e) => {
       content.innerText = json.message;
       return;
     }
-
-   const { data } = await response.json();
-    console.log(data);
-  
-    localStorage.setItem("user", JSON.stringify(data));
-
-    if (data.permission === 'ADMIN') {
+    const { data } = await response.json();
+    localStorage.setItem("user", JSON.stringify(data))
+    const { permission } = data;
+    if (permission === 'ADMIN') {
       window.location.href = "dashboard-admin.html";
       return false;
-    } if (data.permission === 'STAFF') {
+    } if (permission === 'STAFF') {
       window.location.href = "dashboard-staff.html";
       return false;
     } else {

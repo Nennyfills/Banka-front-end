@@ -48,33 +48,17 @@
 
   <div class="content-area">
     <div class="card-item-create-user-acount">
-      <form action="dashboard.html">
+          <div id="login-respond" class="ruler"></div>
+      <form onsubmit="createAccount(event)">
         <h1 id="create-text">Create your account</h1>
-        <!-- <div id="username">
-          <input type="text" name="firstname" placeholder="First name" id="firstname" required />
-          <input type="text" name="surname" placeholder="surname" id="surname" />
-        </div> -->
         <div id="useremail">
-          <input type="email" name="email" placeholder="Email" id="email" required />
+          <input type="number" name="openingbalance" placeholder="Opening balance" id="openingbalance" required />
         </div>
-        <!-- <div id="phone-number-content">
-          <input type="number" name="phone-number" placeholder="Phone Number" id="phone-number" required />
-        </div> -->
         <select name="AcountType" id="usertype" required>
           <option>Type of Account</option>
           <option value="savings" id="createSavings">Savings</option>
           <option value="current" id="createCurrent">Current</option>
         </select>
-        <!-- <div id="birthday-content">
-          <h3>Birthday</h3>
-          <input type="date" name="dob" id="create-dob" required />
-        </div> -->
-        <!-- <div id="gender" class="gender">
-          <label for="male">Male</label>
-          <input type="radio" name="gender" id="gender-male" required />
-          <label for="female">Female</label>
-          <input type="radio" name="gender" id="gender-female" required />
-        </div> -->
         <button class="primary-btn" type="submit">Submit</button>
       </form>
     </div>
