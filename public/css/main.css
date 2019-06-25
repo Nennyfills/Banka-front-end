@@ -352,6 +352,9 @@ header .username {
    width: 260px;
   background: transparent;
 }
+.margin{
+  margin-bottom:1rem;
+}
 
 .card-item-create-view{
   padding: 10px 0 20px 0;
@@ -568,7 +571,7 @@ input[type="number"]::-webkit-outer-spin-button {
   color: #494646;
   background-color: #fff;
   padding: 30px 30px 20px 30px;
-  margin: auto;
+  margin: 30rm auto;
   border-radius: 100px;
   border-bottom: solid 9px rgb(7, 26, 83);
   text-align: center;
