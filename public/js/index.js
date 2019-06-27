@@ -59,12 +59,8 @@ const signMeUp = async (e) => {
   const password = document.getElementById("password").value;
   const confirm_password = document.getElementById("confirm-password").value;
   const content = document.getElementById("login-respond");
-  console.log(firstname, surname, email, phoneNumber, password, confirm_password);
-
   const url = "https://banka-nenny.herokuapp.com/api/v1/auth/signup"
   const payload = JSON.stringify({ firstname, surname, email, phonenumber, password })
-  console.log(payload);
-
   try {
     if (password !== confirm_password) {
       content.style.display = 'block';

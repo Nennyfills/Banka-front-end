@@ -168,8 +168,6 @@ const createAdmin = async (e) => {
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
     myHeaders.append('Authorization', token);
-    console.log(payload);
-
     try {
         if (password !== confirm_password) {
             content.style.display = 'block';
@@ -197,4 +195,71 @@ const createAdmin = async (e) => {
 
     return false;
 };
+const debitAccount = async (e) => {
+    e.preventDefault();
+    const accountnumber = document.getElementById("accountnumber").value;
+    const amount = document.getElementById("amount").value;
+    const content = document.getElementById("respond");
+    const url = `https://banka-nenny.herokuapp.com/api/v1/transactions/${accountnumber}/debit`
+    const payload = JSON.stringify({ amount })
+    const token = user.token;
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+    myHeaders.append('Authorization', token);
+    try {
+        const response = await fetch(url,
+            {
+                method: 'POST',
+                body: payload,
+                mode: "cors",
+                cache: "no-cache",
+                headers: myHeaders
+            });
+        if (!response.ok) {
+            const json = await response.json()
+            content.innerHTML = `<h4 class="profile-design info" style = " background:red; width:60%; margin:2rem auto;" >${json.message}</h4>`;
+            return;
+        }
+        const { message } = await response.json();
+        content.innerHTML = `<h4 class="profile-design info" style = " background:white; color:black; width:60%; margin:2rem auto;" >${message}<h4>`;
+    } catch (error) {
+        content.innerHTML = `<h4 class="profile-design info" style = " background:red; width:60%; margin:2rem auto;" >Failed to retrieve user informations:(${error})</h4>`;
+    }
 
+    return false;
+};
+
+const creditAccount = async (e) => {
+    e.preventDefault();
+    const accountnumber = document.getElementById("accountnumber").value;
+    const amount = document.getElementById("amount").value;
+    const depositor = document.getElementById("depositor").value;
+    const content = document.getElementById("respond");
+    const url = `https://banka-nenny.herokuapp.com/api/v1/transactions/${accountnumber}/credit`
+    const payload = JSON.stringify({ amount, depositor})    
+    const token = user.token;
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+    myHeaders.append('Authorization', token);
+    try {
+        const response = await fetch(url,
+            {
+                method: 'POST',
+                body: payload,
+                mode: "cors",
+                cache: "no-cache",
+                headers: myHeaders
+            });
+        if (!response.ok) {
+            const json = await response.json()
+            content.innerHTML = `<h4 class="profile-design info" style = " background:red; width:60%; margin:2rem auto;" >${json.message}</h4>`;
+            return;
+        }
+        const { message } = await response.json();
+        content.innerHTML = `<h4 class="profile-design info" style = " background:white; color:black; width:60%; margin:2rem auto;" >${message}<h4>`;
+    } catch (error) {
+        content.innerHTML = `<h4 class="profile-design info" style = " background:red; width:60%; margin:2rem auto;" >Failed to retrieve user informations:(${error})</h4>`;
+    }
+
+    return false;
+};
