@@ -65,12 +65,15 @@
 
   <div class="content-area">
     <div class="card-item-create-acount">
+      <div id="respond"></div>
       <h1>Create New Admin</h1>
-      <form action="">
-        <input type="text" name="admin-name" placeholder="Username" class="admin-name" required />
-        <input type="email" name="admin-email" placeholder="Email" class="staff-email" required />
-        <input type="password" name="admin-password" placeholder="Password" class="admin-name" required />
-        <input type="password" name="confirm-admin-password" placeholder="Confirm Password"
+      <form onsubmit="createAdmin(event)">
+        <input type="text" name="admin-firstname" placeholder="First name" id="firstname" class="admin-name" required />
+        <input type="text" name="admin-surname" placeholder="Surname" id="surname" class="admin-name" required />
+        <input type="email" name="admin-email" placeholder="Email"id="userEmail"  class="staff-email" required />
+        <input type="number" name="admin-phone" placeholder="Phone number" id="phoneNumber" class="staff-email" required />
+        <input type="password" name="admin-password" placeholder="Password" id="password" class="admin-name" required />
+        <input type="password" name="confirm-admin-password" placeholder="Confirm Password" id="confirm-password"
           class="confirm-admin-password" required />
         <button class="create-admin primary-btn">Submit</button>
       </form>
@@ -80,6 +83,7 @@
     </footer>
   </div>
   <script src="../public/js/main.js"></script>
+  <script src="../public/js/adminStaff.js"></script>
 </body>
 
 </html>
