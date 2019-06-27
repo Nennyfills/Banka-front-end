@@ -110,5 +110,91 @@ const numsOfAccounts = async () => {
     }
 }
 
+const createStaff = async (e) => {
+    e.preventDefault();
+    const firstname = document.getElementById("firstname").value;
+    const surname = document.getElementById("surname").value;
+    const email = document.getElementById("userEmail").value;
+    const phonenumber = document.getElementById("phoneNumber").value;
+    const password = document.getElementById("password").value;
+    const confirm_password = document.getElementById("confirm-password").value;
+    const content = document.getElementById("respond");
+    const url = "https://banka-nenny.herokuapp.com/api/v1/auth/portal"
+    const payload = JSON.stringify({ firstname, surname, email, phonenumber, password, type: "STAFF" })
+    const token = user.token;
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+    myHeaders.append('Authorization', token);
+    try {
+        if (password !== confirm_password) {
+            content.style.display = 'block';
+            content.innerHTML = `<h4 class="profile-design info" style=" background:red; width:80%; margin:2rem auto;">password does not match confirm password</h4>`;
+            return;
+        }
+        const response = await fetch(url,
+            {
+                method: 'POST',
+                body: payload,
+                mode: "cors",
+                cache: "no-cache",
+                headers:myHeaders
+            });
+        if (!response.ok) {
+            const json = await response.json()
+            content.innerHTML = `<h4 class="profile-design info" style = " background:red; width:80%; margin:2rem auto;" >${json.message}</h4>`;
+            return;
+        }
+        const { message } = await response.json();
+        content.innerHTML = `<h4 class="profile-design info" style = " background:white; color:black; width:80%; margin:2rem auto;" >Staff ${message}</h4>`;
+    } catch (error) {
+        content.innerHTML = `<h4 class="profile-design info" style = " background:red; width:80%; margin:2rem auto;" >Failed to retrieve user informations:(${error})</h4>`;
+    }
 
+    return false;
+};
+
+const createAdmin = async (e) => {
+    e.preventDefault();
+    const firstname = document.getElementById("firstname").value;
+    const surname = document.getElementById("surname").value;
+    const email = document.getElementById("userEmail").value;
+    const phonenumber = document.getElementById("phoneNumber").value;
+    const password = document.getElementById("password").value;
+    const confirm_password = document.getElementById("confirm-password").value;
+    const content = document.getElementById("respond");
+    const url = "https://banka-nenny.herokuapp.com/api/v1/auth/portal"
+    const payload = JSON.stringify({ firstname, surname, email, phonenumber, password, type: "ADMIN" })
+    const token = user.token;
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+    myHeaders.append('Authorization', token);
+    console.log(payload);
+
+    try {
+        if (password !== confirm_password) {
+            content.style.display = 'block';
+            content.innerHTML = `<h4 class="profile-design info" style=" background:red; width:80%; margin:2rem auto;">password does not match confirm password</h4>`;
+            return;
+        }
+        const response = await fetch(url,
+            {
+                method: 'POST',
+                body: payload,
+                mode: "cors",
+                cache: "no-cache",
+                headers: myHeaders
+            });
+        if (!response.ok) {
+            const json = await response.json()
+            content.innerHTML = `<h4 class="profile-design info" style = " background:red; width:80%; margin:2rem auto;" >${json.message}</h4>`;
+            return;
+        }
+        const { message } = await response.json();
+        content.innerHTML = `<h4 class="profile-design info" style = " background:white; color:black; width:80%; margin:2rem auto;" >Admin ${message}<h4>`;
+    } catch (error) {
+        content.innerHTML = `<h4 class="profile-design info" style = " background:red; width:80%; margin:2rem auto;" >Failed to retrieve user informations:(${error})</h4>`;
+    }
+
+    return false;
+};
 
