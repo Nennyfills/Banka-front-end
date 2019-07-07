@@ -47,17 +47,18 @@
   </header>
   <div class="content-area">
     <div class="heading">
+      <div id="respond"></div>
       <h1>Credit Accounts</h1>
     </div>
     <div class="card-item-create-acount">
-      <form action="dashboard.html">
-        <input type="text" name="credit-name" placeholder="Name" class="credit-name" required />
-        <input type="number" name="credit-account-number" placeholder="Account Number" class="credit-account-number"
+      <form onsubmit="creditAccount(event)">
+        <div>
+          <input type="number" name="credit-account-number" placeholder="Account Number" id="accountnumber" class="credit-account-number"
           required />
-        <input type="number" name="credit-amount" placeholder=" Amount" class="credit-amount" required />
-        <input type="text" name="depositor-name" placeholder="Depositor Name" class="depositor-name" required />
-        <input type="text" name="creditor-name" placeholder="Creditor's Name" class="creditor-name" required />
-        <button type="submit" class="primary-btn">Credit</button>
+          <input type="number" name="credit-amount" placeholder=" Amount" id="amount" class="credit-amount" required />
+          <input type="text" name="depositor-name" placeholder="Depositor Name" id="depositor" class="depositor-name" required />
+          <button type="submit" class="primary-btn">Credit</button>
+        </div>
       </form>
     </div>
     <footer id="main-footer">
@@ -65,6 +66,7 @@
     </footer>
   </div>
   <script src="../public/js/main.js"></script>
+  <script src="../public/js/adminStaff.js"></script>
 </body>
 
 </html>

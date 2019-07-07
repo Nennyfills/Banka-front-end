@@ -352,6 +352,9 @@ header .username {
    width: 260px;
   background: transparent;
 }
+.margin{
+  margin-bottom:1rem;
+}
 
 .card-item-create-view{
   padding: 10px 0 20px 0;
@@ -522,12 +525,7 @@ input[type="number"]::-webkit-outer-spin-button {
   padding: 1rem;
 }
 
-#firstname,
-#surname,
-#password,
-#comfirm-password ,
-#email,
-#phone-number,
+#openingbalance,
 #usertype {
   margin-bottom: 1.3rem;
   width: 80%;
@@ -573,7 +571,7 @@ input[type="number"]::-webkit-outer-spin-button {
   color: #494646;
   background-color: #fff;
   padding: 30px 30px 20px 30px;
-  margin: auto;
+  margin: 30rm auto;
   border-radius: 100px;
   border-bottom: solid 9px rgb(7, 26, 83);
   text-align: center;
@@ -583,7 +581,9 @@ input[type="number"]::-webkit-outer-spin-button {
 .table-content,
 table {
   width: 80%;
-  margin: auto;
+  margin-bottom: 5rem;
+  margin-left: auto;
+  margin-right: auto;
   border-collapse: collapse;
 }
 tr:nth-of-type(odd),
@@ -630,6 +630,19 @@ th,
   margin:  40px auto;
 }
 /* modal */
+.ruler {
+  width: 80% !important;
+  margin: auto
+  /* margin-bottom: 1rem; */
+}
+#login-respond {
+  /* background-color: rgb(231, 37, 37); */
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+  display: none;
+}
 .modal {
   display: none;
   position: fixed;

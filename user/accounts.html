@@ -14,7 +14,7 @@
   <link rel="icon" sizes="192x192" href="../public/img/bicon.png" />
 </head>
 
-<body>
+<body onload="accounts(), dashboard()">
   <label for="mobileShowmenu" class="mobileShowmenu">Show Menu</label>
   <input type="checkbox" role="button" id="mobileShowmenu" />
   <div class="sidemenu">
@@ -53,40 +53,19 @@
         <label for="from">From</label>
         <input type="date" name="Search" class="searchField" id="transactionSearch" placeholder="Filter by date" />
         <label for="to">To</label>
-        <input type="date" name="Search" class="searchFieldTwo" id="transactionSearch" />
-        <button type="Submit" id="get-search-button" class="getSearchButton">Search</button> </div>
+        <input type="date" name="Search" class="searchFieldTwo" id="transactionSearchTwo" />
+        <button type="Submit" id="get-search-button" class="getSearchButton" onclick="searchByDate()">Search</button> </div>
     </form>
-
     <div class="transation">
-      <table class="table-content">
-        <thead class="accounts">
-          <tr class="account-tr">
-            <th class="account-th">
-              ID
-            </th>
-            <th class="account-th">Name</th>
-            <th class="account-th">Account</th>
-            <th class="account-th">Email</th>
-            <th class="account-th">Cell Number</th>
-            <th>Veiw Accounts</th>
-          </tr>
-        </thead>
-        <tbody class="accounts-tbody">
-          <tr class="account-tr">
-            <td class="account-td">001</td>
-            <td class="account-td">Ike Peter Joe</td>
-            <td class="account-td">0965537892</td>
-            <td class="account-td">peterike@gmail.com</td>
-            <td class="account-td">08069786543</td>
-            <td class="account-td"><a href="view.html">View</a></td>
-          </tr>
-        </tbody>
-      </table>
+      <div id="information"></div>
+       <div id="table"></div>
+    
     </div>
     <footer id="main-footer">
       <p>Copyright &copy; 2019 Banka All Right Reserved</p>
     </footer>
   </div>
+  <script src="../public/js/adminStaff.js"></script>
   <script src="../public/js/main.js"></script>
 </body>
 

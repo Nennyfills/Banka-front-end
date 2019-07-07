@@ -48,16 +48,14 @@
 
   <div class="content-area">
     <div class="heading">
+      <div id="respond"></div>
       <h1>Debit Accounts</h1>
     </div>
     <div class="card-item-create-acount">
-      <form action="">
-        <input type="text" name="debit-name" placeholder="Name" class="debit-name" required />
-        <input type="number" name="debit-account-number" placeholder="Account Number" class="debit-account-number"
+      <form onsubmit="debitAccount(event)">
+        <input type="number" name="debit-account-number" placeholder="Account Number" id="accountnumber" class="debit-account-number"
           required />
-        <input type="number" name="debit-amount" placeholder=" Amount" class="debit-amount" required />
-        <input type="text" name="debitor-name" placeholder="Debitor's Name" class="debitor-name" required />
-        <input type="text" name="debit-description" placeholder="Description" class="debit-description-name" required />
+        <input type="number" name="debit-amount" placeholder=" Amount" id="amount" class="debit-amount" required />
         <button type="submit" class="primary-btn">Debit</button>
       </form>
     </div>
@@ -66,5 +64,6 @@
     </footer>
   </div>
     <script src="../public/js/main.js"></script>
+    <script src="../public/js/adminStaff.js"></script>
   </body>
 </html>

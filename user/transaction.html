@@ -14,7 +14,7 @@
   <link rel="icon" sizes="192x192" href="../public/img/bicon.png" />
 </head>
 
-<body>
+<body onload="transaction()">
   <label for="mobileShowmenu" class="mobileShowmenu">Show Menu</label>
   <input type="checkbox" role="button" id="mobileShowmenu" />
   <div class="sidemenu">
@@ -60,28 +60,28 @@
       </div>
     </form>
 
+    <div class="profile-select design semi-square margin">
+      <select id="getAccount" class="select-account">
+        <option value="account" disabled selected="true">Select Account</option>
+      </select>
+    </div>
+    <div id="information"></div>
     <div class="transation">
-      <table class="table-content">
+      <table class="table-content" id="insertRow">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Type</th>
+            <th>ID</th>
             <th>Account Number</th>
             <th>Amount</th>
             <th>casher</th>
+            <th>Depositor</th>
+            <th>Type</th>
             <th>Old balance</th>
             <th>New balance</th>
+            <th>Date</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>12/1/2019</td>
-            <td>Debit</td>
-            <td>09009898723</td>
-            <td>1345.6</td>
-            <td>chidi</td>
-            <td>200</td>
-            <td>1545.6</td>
         </tbody>
       </table>
     </div>

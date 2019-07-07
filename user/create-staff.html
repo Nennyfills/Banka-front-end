@@ -65,14 +65,19 @@
 
   <div class="content-area">
     <div class="card-item-create-acount">
+      <div id="respond"></div>
       <h1>Create New Staff</h1>
-      <form action="dashboard.html">
-        <input type="text" name="staff-name" placeholder="Username" class="staff-name" required />
-        <input type="email" name="staff-email" placeholder="Email" class="staff-email" required />
-        <input type="password" name="staff-password" placeholder="Password" class="staff-password" required />
-        <input type="password" name="confirm-staff-password" placeholder="Confirm Password"
-          class="confirm-staff-password" required />
-        <button class="primary-btn">Submit</button>
+      <form onsubmit="createStaff(event)">
+        <div>
+          <input type="text" name="staff-firstname" placeholder="First name" id="firstname" class="staff-name" required />
+          <input type="text" name="staff-surname" placeholder="Surname" id="surname" class="staff-name" required />
+          <input type="email" name="staff-email" placeholder="Email" id="userEmail" class="staff-email" required />
+          <input type="number" name="staff-phone" placeholder="Phone number" id="phoneNumber" class="staff-email" required />
+          <input type="password" name="staff-password" placeholder="Password" id="password" class="staff-password" required />
+          <input type="password" name="confirm-staff-password" placeholder="Confirm Password" id="confirm-password"
+              class="confirm-staff-password" required />
+          <button class="primary-btn">Submit</button>
+        </div>
       </form>
     </div>
     <footer id="main-footer">
@@ -80,6 +85,7 @@
     </footer>
   </div>
   <script src="../public/js/main.js"></script>
+  <script src="../public/js/adminStaff.js"></script>
 </body>
 
 </html>

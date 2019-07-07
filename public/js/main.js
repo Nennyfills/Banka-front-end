@@ -78,28 +78,6 @@
 // //   )
 // // }
 
-// // ///////////////////////////////////////////////////////
-
-// const openModal = (current) => {
-//   const modal = document.getElementById(current);
-//   modal.style.display = "block";
-// };
-
-// const closeModal = (current) => {
-//   const modal = document.getElementById(current);
-//   modal.style.display = "none";
-// };
-
-// const deleteBtn = () => {
-//   window.location.href = "accounts.html";
-// };
-// const activateBtn = () => {
-//   window.location.href = "accounts.html";
-// };
-// // eslint-disable-next-line no-unused-vars
-// const deactivateBtn = () => {
-//   window.location.href = "accounts.html";
-// };
 
 // document.onreadystatechange = () => {
 //   // eslint-disable-next-line no-empty
@@ -111,8 +89,8 @@
 //   const url = `https://res.cloudinary.com/${cloudName}/image/upload/${url}/nenny1_ewjwmw.jpg`;
 //   img.src = url;
 // };
-const goBack = () => {
-  document.getElementById("side_dashboard").addEventListener("click", (e) => {
+const dashboard = () => {
+  document.getElementById("side_dashboard").addEventListener("click", (e) => {    
     const user = JSON.parse(localStorage.getItem("user"));
     if (user.permission === "ADMIN".toUpperCase()) {
       window.location.href = "dashboard-admin.html";
@@ -125,18 +103,14 @@ const goBack = () => {
 }
 const user = JSON.parse(localStorage.getItem("user"));
 document.getElementById("userFirstname").innerText = user.firstname;
-document.getElementById("userName").innerText = `${user.firstname} ${user.surname}`;
-document.getElementById("userEmail").innerText = user.email;
-document.getElementById("userPhonenumber").innerText = user.phonenumber;
 let account;
 const getAccounts = async () => {
   let information = document.getElementById('information');
   const url = `https://banka-nenny.herokuapp.com/api/v1/user/accounts/${user.id}`;
-  const token = user.token
+  const token = user.token;
   const myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
   myHeaders.append('Authorization', token);
-  showSpinner();
   try {
     const response = await fetch(url,
       {
@@ -146,31 +120,23 @@ const getAccounts = async () => {
         headers: myHeaders,
       });
     if (!response.ok) {
-      hideSpinner();
       const json = await response.json()
       return information.innerHTML = `<h4 class="profile-design info">
                  ${json.message}, please open an account.
               </h4 >`;
     }
     const { data, message } = await response.json();
-    account = data;
-    // localStorage.setItem("account", JSON.stringify(data))
+    localStorage.setItem("accounts", JSON.stringify(data))
+    account = data;    
     let optionList = document.getElementById('getAccount').options;
     let select = document.querySelector('.select-account');
     data.forEach(option => optionList.add(new Option(option.accountnumber, option.id)))
     select.addEventListener('change', displaySelectedAccount);
   }
   catch (error) {
-    hideSpinner();
-    console.log(error, "hi");
+    console.log(`Failed to retrieve user informations: ${error}`);
   }
 }
-// let account;
-// if(!account){
-//   account = null;
-// }else {
-//  account = JSON.parse(localStorage.getItem("account"));
-// }
 const getAccountDetails = accountId => account.find(({ id }) => id == accountId);
 const displaySelectedAccount = ({ target }) => {
   let accountType = document.getElementById('accountType');
@@ -189,65 +155,97 @@ const displaySelectedAccount = ({ target }) => {
                 Balance: ${balance}
               </h4 >`;
   accountStatus.innerHTML = status === "active" ? `<h3 class="badge-success">${status}</h3>` : `<h3 class="badge-danger">${status}</h3>`;
+return;
 }
 
-// const uploadToServer = (avatarUrl) => {
-//   fetch('v1/uploadProfile',
-//     {
-//       method: "POST",
-//       body: {
-//         photo: avatarUrl,
-//       }
-//     })
+ const createAccount = async (e) =>{
+  e.preventDefault();
+   const openingbalance = document.getElementById("openingbalance").value;
+   const type = document.getElementById("usertype").value;  
+   const content = document.getElementById("login-respond");
+   const url = "https://banka-nenny.herokuapp.com/api/v1/accounts"
+   const payload = JSON.stringify({ openingbalance, type});
+   const user = JSON.parse(localStorage.getItem("user"));
+   const token = user.token;
+   const myHeaders = new Headers();
+   myHeaders.append('Content-Type', 'application/json');
+   myHeaders.append('Authorization', token);
+   try {
+     const response = await fetch(url,
+       {
+         method: 'POST',
+         body: payload,
+         mode: "cors",
+         cache: "no-cache",
+         headers: myHeaders,
+       });
+     if (!response.ok) {
+       const {message} = await response.json()
+       content.style.display = 'block';
+       content.innerHTML = `<h4 style="background: rgb(231, 37, 37)">${message.messag}</h4>`;
+       return;
+     }
+     const {data, message} = await response.json();
+     content.style.display = 'block';
+     content.innerHTML = `<h4 style="color:black">${message}, here is your 
+                      ${data.type} account number ${data.accountnumber}</h4>`;
+                      
+   } catch (error) {
+     content.innerText = `Failed to retrieve user informations: ${error}`;
+   }
 
-//   )
-// }
+   return false;
+ };
+ const transaction = () =>{
+   account = JSON.parse(localStorage.getItem("accounts"));
+   let optionList = document.getElementById('getAccount').options;
+   let select = document.querySelector('.select-account');
+   account.forEach(option => optionList.add(new Option(option.accountnumber, option.accountnumber)))
+   select.addEventListener('change', getTransaction);
+ }
 
-// const openModal = (current) => {
-//   const modal = document.getElementById(current);
-//   modal.style.display = "block";
-// };
-
-// const closeModal = (current) => {
-//   const modal = document.getElementById(current);
-//   modal.style.display = "none";
-// };
-
-// const deleteBtn = () => {
-//   window.location.href = "accounts.html";
-// };
-// const activateBtn = () => {
-//   window.location.href = "accounts.html";
-// };
-// eslint-disable-next-line no-unused-vars
-// const deactivateBtn = () => {
-//   window.location.href = "accounts.html";
-// };
-
-// document.onreadystatechange = () => {
-//   // eslint-disable-next-line no-empty
-//   if (document.readyState !== "complete") {
-//     return;
-//   }
-//   const usernameElements = document.getElementsByClassName("username-label");
-//   for (let i = 0; i < usernameElements.length; i++) {
-//       usernameElements[i].innerText = user.firstname; 
-//   }
-  
-//   const img = document.getElementById("image");
-//   if (img) {
-//     //https://res.cloudinary.com/${cloudName}/image/upload/${url}/{userId}.jpg`
-//     const url = `https://res.cloudinary.com/${cloudName}/image/upload/nenny1_ewjwmw.jpg`;
-//     img.src = url;
-//   }
-
-  // const dashboard = document.getElementById("side_dashboard").addEventListener("click", (e) => {
-  //   if (user.permission === "admin".toUpperCase()) {
-  //     window.location.href = "dashboard-admin.html";
-  //   } else if (user.permission === "staff".toUpperCase()) {
-  //     window.location.href = "dashboard-staff.html";
-  //   } else if (user.permission === "user".toUpperCase()) {
-  //     window.location.href = "dashboard-user.html";
-  //   }
-  // });
-// };
+const addData = (nodeList, data)=> {
+  data.forEach((value, i) => {
+    const tr = nodeList.insertRow(i);
+    Object.keys(value).forEach((k, j) => {
+      const cell = tr.insertCell(j);
+      const a = document.createElement("a");
+      cell.innerHTML = value[k];
+      a.setAttribute("href", "view.html");
+    });
+    nodeList.appendChild(tr);
+  })
+}
+const getAccountNumber = accountNums => account.find(({ accountnumber }) => accountnumber == accountNums);
+const getTransaction = async({ target }) => {
+  let information = document.getElementById('information');
+  let insertBody = document.querySelector("#insertRow tbody");
+  const account = getAccountNumber(target.value);
+  const url = `https://banka-nenny.herokuapp.com/api/v1/${account.accountnumber}/transactions`;
+   const token = user.token;
+   const myHeaders = new Headers();
+   myHeaders.append('Content-Type', 'application/json');
+   myHeaders.append('Authorization', token);
+   try {
+     const response = await fetch(url,
+       {
+         method: 'GET',
+         mode: "cors",
+         cache: "no-cache",
+         headers: myHeaders,
+       });
+     if (!response.ok) {
+       const json = await response.json()
+       return information.innerHTML = `<h4 class="profile-design info style="width:50%; margin:2rem auto;">${json.message}.</h4 >`;
+     }
+     const json = await response.json();
+     const data = json.data
+     if (json.data.length === 0){
+       return information.innerHTML = `<h4 class="profile-design info" style="width:50%; margin:2rem auto;">${json.message},
+                                       you have no transaction on this account.</h4 >`;
+     }
+     addData(insertBody, data);
+  } catch (error) {
+     information.innerText = `Failed to retrieve user informations: ${error}`; 
+  }
+}
