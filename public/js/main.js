@@ -89,24 +89,6 @@
 //   const url = `https://res.cloudinary.com/${cloudName}/image/upload/${url}/nenny1_ewjwmw.jpg`;
 //   img.src = url;
 // };
-const openModal = (current) => {
-  const modal = document.getElementById(current);
-  modal.style.display = "block";
-};
-const closeModal = (current) => {
-  const modal = document.getElementById(current);
-  modal.style.display = "none";
-};
-const deleteBtn = () => {
-  window.location.href = "accounts.html";
-};
-const activateBtn = () => {
-  window.location.href = "accounts.html";
-};
-const deactivateBtn = () => {
-  window.location.href = "accounts.html";
-};
-
 const dashboard = () => {
   document.getElementById("side_dashboard").addEventListener("click", (e) => {    
     const user = JSON.parse(localStorage.getItem("user"));
